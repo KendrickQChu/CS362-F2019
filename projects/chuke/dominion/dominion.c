@@ -894,8 +894,9 @@ int tributeCardEffect(struct gameState* state, int currentPlayer, int nextPlayer
             shuffle(nextPlayer,state);//Shuffle the deck
         }
         //Introduced bug: first tribute card should be at deck[nextPlayer][state->deckCount[nextPlayer] - 1]
+        //Fixed introduced bug so that prorgam will run
         //outside of array bounds
-        tributeRevealedCards[0] = state->deck[nextPlayer][nextPlayerDeckCount];
+        tributeRevealedCards[0] = state->deck[nextPlayer][nextPlayerDeckCount-1];
         state->deck[nextPlayer][nextPlayerDeckCount--] = -1;
         nextPlayerDeckCount--;
         tributeRevealedCards[1] = state->deck[nextPlayer][nextPlayerDeckCount-1];
